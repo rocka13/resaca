@@ -13,15 +13,15 @@ class elementosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function tipo(){
-		
-		return view('elementos.partials.fields')->with('tipo', $tipo);
-	}
+	
 
 	public function index()
 	{	
-		 $elementos = elementos::get();
-        return view('elementos.index')->with('elementos', $elementos);
+	$elementos = \DB::table('tipo_elementos')
+					->select('elementos.*','tipo_elementos.descripcion as tipo')
+					->join('elementos', 'tipo_elementos.id', '=', 'elementos.tipo_elemento_id')
+					->get();
+            return view('elementos.index')->with('elementos', $elementos);
 	}
 
 	/**
@@ -42,13 +42,13 @@ class elementosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-
-		dd($request);
+	
 		$elementos = new elementos;
 		$elementos->nombre = $request->input('nombre');
         $elementos->descripcion = $request->input('descripcion');
         $elementos->tipo_elemento_id = $request->input('tipo_elemento_id');
         $elementos->save();
+        
 
         return redirect()->route('elementos.index');
 	}

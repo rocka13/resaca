@@ -35,6 +35,7 @@ class tipoElementosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		dd($request);
 		$tipo_elementos = new tipo_elementos;
         $tipo_elementos->descripcion = $request->input('descripcion');
 

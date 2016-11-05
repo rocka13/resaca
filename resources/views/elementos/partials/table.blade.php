@@ -17,7 +17,7 @@
             <td class="text-center">{{ $telementos->id }}</td>
             <td class="text-center">{{ $telementos->nombre }}</td>
             <td class="text-center">{{ $telementos->descripcion }}</td>
-            <td class="text-center">{{ $telementos->tipo_elemento_id }}</td>
+            <td class="text-center">{{ $telementos->tipo }}</td>
             <td class="text-center">{{ $telementos->created_at }}</td>
 
         {!! Form::open(['route' => ['elementos.destroy', $telementos->id], 'method' => 'DELETE']) !!}
