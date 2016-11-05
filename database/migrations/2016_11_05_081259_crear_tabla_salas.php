@@ -15,7 +15,10 @@ class CrearTablaSalas extends Migration {
 		Schema::create('salas', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('nombre', 100);
+			$table->integer('id_aula_ryca');
 			$table->timestamps();
+
 		});
 	}
 
