@@ -32,6 +32,7 @@ class elementosController extends Controller {
 	public function create()
 	{	
 		$tipo = \resaca\tipo_elementos::lists('descripcion','id');//con este codigo llamo los campos descripcion y id
+
 		return view('elementos.create', compact('tipo')/*con este los envio a create*/);
 	}
 
@@ -40,7 +41,7 @@ class elementosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store()
 	{
 	
 		$elementos = new elementos;

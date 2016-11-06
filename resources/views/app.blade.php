@@ -24,6 +24,7 @@
     <!-- Scripts -->    
     {!! Html::script('js/jquery.js') !!}
     {!! Html::script('js/jquery.dataTables.js') !!}
+    {!! Html::script('js/myscript.js') !!}
     {!! Html::script('js/bootstrap.min.js') !!}
     {!! Html::script('js/datatable-bootstrap.js') !!}
     <script>

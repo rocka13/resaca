@@ -6,7 +6,7 @@
 
         <div class="form-group">
   		{!! Form::select('tipo_elemento_id', $tipo, null, ['class' => 'form-control'])!!}
-		</div><!--  este es el select-->
+		</div>
         <button type="submit" class="btn btn-success btn-block">Guardar</button>
     {!! Form::close() !!}
 @endsection

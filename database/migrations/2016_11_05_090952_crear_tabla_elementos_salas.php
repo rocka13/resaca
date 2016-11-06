@@ -15,6 +15,7 @@ class CrearTablaElementosSalas extends Migration {
 		Schema::create('elementos_salas', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('cantidad');
 			$table->timestamps();
 			$table->integer('elemento_id')->unsigned();
 			$table->foreign('elemento_id')->references('id')->on('elementos');

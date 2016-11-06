@@ -19,9 +19,12 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
- Route::resource('tipo_elementos', 'tipoElementosController');
+ Route::resource('salas', 'salasController');
  Route::resource('elementos', 'elementosController');
+ Route::resource('tipo_elementos', 'tipoElementosController');
+ Route::resource('elementos_salas','elementos_salasController');
+
+ 
 /*
  Route::get('elementos/create', function(){
  	$tipos = tipo_elementos::all();
