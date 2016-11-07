@@ -1,8 +1,8 @@
 <h1 class="text-primary">Control de Salas</h1>
 
-<table class="table table-bordered cell-border" id="MyTable">
+<table class="table" id="MyTable">
   <thead>
-    <tr>
+    <tr class="active">
         <th class="text-center">ID</th>
         <th class="text-center">Nombre</th>
         <th class="text-center">Aula Ryca</th>

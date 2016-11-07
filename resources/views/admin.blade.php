@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" id="titulo">Resaca</a>
+                <a class="navbar-brand" href="index.html" id="titulo">Reservas de Salas Académicas</a>
             </div>
            
 <div class="collapse navbar-collapse">
