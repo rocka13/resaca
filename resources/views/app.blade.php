@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     @section('styles_laravel')
-    {!! Html::style('css/bootstrap.css') !!}
+    {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('css/datatable-bootstrap.css') !!}
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <!-- Scripts -->    
-    {!! Html::script('js/jquery.js') !!}
+    {!! Html::script('js/jquery.min.js') !!}
     {!! Html::script('js/jquery.dataTables.js') !!}
     {!! Html::script('js/myscript.js') !!}
     {!! Html::script('js/bootstrap.min.js') !!}

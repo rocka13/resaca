@@ -1,8 +1,13 @@
 <h1 class="text-primary">Control de Salas</h1>
+<<<<<<< HEAD
 <div class="table-responsive">
 <table class="table table-bordered cell-border table-hover" id="MyTable">
+=======
+
+<table class="table" id="MyTable">
+>>>>>>> 452e45d1479a917bb9744b72058f54d5858841d3
   <thead>
-    <tr>
+    <tr class="active">
         <th class="text-center">ID</th>
         <th class="text-center">Nombre</th>
         <th class="text-center">Aula Ryca</th>
