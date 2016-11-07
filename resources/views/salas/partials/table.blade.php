@@ -1,6 +1,6 @@
 <h1 class="text-primary">Control de Salas</h1>
-
-<table class="table table-bordered cell-border" id="MyTable">
+<div class="table-responsive">
+<table class="table table-bordered cell-border table-hover" id="MyTable">
   <thead>
     <tr>
         <th class="text-center">ID</th>
@@ -44,3 +44,4 @@
     </tr>
   </tfoot>
 </table>
+</div>
