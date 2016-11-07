@@ -1,6 +1,6 @@
 <h1 class="text-primary">Control de Salas</h1>
 
-<table class="table table-bordered" id="MyTable">
+<table class="table table-bordered cell-border" id="MyTable">
   <thead>
     <tr>
         <th class="text-center">ID</th>
@@ -25,7 +25,7 @@
                 <a href="{{ url('/salas/'.$telementos->id.'/edit') }}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </a>
-                 <a href="{{ url('/elementos_salas/'.$telementos->id.'/ver') }}" class="btn btn-warning btn-xs">
+                 <a href="{{ url('/ver/elementos/'.$telementos->id) }}" class="btn btn-warning btn-xs">
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
             </td>

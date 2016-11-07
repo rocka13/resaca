@@ -24,6 +24,8 @@ Route::controllers([
  Route::resource('tipo_elementos', 'tipoElementosController');
  Route::resource('elementos_salas','elementos_salasController');
 
+ Route::get('ver/elementos/{id}', array('as' => 'ver/elementos', 'uses' => 'elementos_salasController@ver'));
+
  
 /*
  Route::get('elementos/create', function(){

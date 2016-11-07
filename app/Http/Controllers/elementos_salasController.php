@@ -16,6 +16,18 @@ class elementos_salasController extends Controller {
 	 * @return Response
 	 */
 
+	public function ver($id)
+	{
+		 $elementos_salas = \DB::table('elementos_salas')
+					->select('elementos.nombre as elemento','salas.nombre as sala','elementos_salas.*')
+					->join('elementos', 'elementos_salas.elemento_id', '=', 'elementos.id')
+					->join('salas', 'elementos_salas.sala_id', '=', 'salas.id')
+					->where('sala_id', '=', $id)
+					->get();
+       return view('elementos_salas.index')->with('elementos_salas', $elementos_salas);
+
+	}
+
 	public function index()
 	{
 		 $elementos_salas = \DB::table('elementos_salas')
@@ -24,7 +36,6 @@ class elementos_salasController extends Controller {
 					->join('salas', 'elementos_salas.sala_id', '=', 'salas.id')
 					->get();
        return view('elementos_salas.index')->with('elementos_salas', $elementos_salas);
-
 	}
 
 	/**

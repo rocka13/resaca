@@ -9,8 +9,10 @@
     <title></title>
 {!!Html::style("css/bootstrap.min.css")!!}
 {!!Html::style("css/metisMenu.min.css")!!}
-{!!Html::style("css/sb-admin-2.css")!!}
 {!!Html::style("css/font-awesome.min.css")!!}
+{!! Html::style('css/datatable-bootstrap.css') !!}
+{!!Html::style("css/sb-admin-2.css")!!}
+
 
 </head>
 
@@ -27,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Cinema Admin</a>
+                <a class="navbar-brand" href="index.html">Resaca</a>
             </div>
            
 
@@ -97,12 +99,23 @@
         </div>
 
     </div>
+
+    <footer>
+        <h4>© 2016 RYCA <a href="">ITFIP </a> <a href="">developers</a></h4>
+    </footer>
     
 
     {!!Html::script("js/jquery.min.js")!!}
+    {!! Html::script('js/jquery.dataTables.js') !!}
     {!!Html::script("js/bootstrap.min.js")!!}
     {!!Html::script("js/metisMenu.min.js")!!}
     {!!Html::script("js/sb-admin-2.js")!!}
+    <script>
+        $(document).ready(function(){
+            $('#MyTable').dataTable();
+        });
+    </script>
+
 
 @section("script")
 @show

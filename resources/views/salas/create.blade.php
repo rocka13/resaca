@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
     {!! Form::open([ 'route' => 'salas.store', 'method' => 'POST']) !!}
