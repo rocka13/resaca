@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 
 @section('content') 
     <a class="btn btn-success pull-right" href="{{ url('/tipo_elementos/create') }}" role="button">Nuevo Tipo Elemento</a>

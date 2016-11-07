@@ -12,6 +12,7 @@
 {!!Html::style("css/font-awesome.min.css")!!}
 {!! Html::style('css/datatable-bootstrap.css') !!}
 {!!Html::style("css/sb-admin-2.css")!!}
+{!!Html::style("css/stilo.css")!!}
 
 
 </head>
@@ -52,42 +53,27 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                     <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table  fa-fw"></i> Administrar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL::to('usuarios/create') !!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!! URL::to('tipo_elementos') !!}"><i class='fa fa-list-ol fa-fw'></i> Tipo Elemento</a>
                                 </li>
 
                                 <li>
-                                    <a href="{!! URL::to('usuarios') !!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    <a href="{!! URL::to('elementos') !!}"><i class='fa fa-list-ol  fa-fw'></i> Elementos</a>
+                                </li>
+                                  <li>
+                                    <a href="{!! URL::to('salas') !!}"><i class='fa fa-list-ol  fa-fw'></i> Salas</a>
+                                </li>
+                                  <li>
+                                    <a href="{!! URL::to('elementos_salas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Elementos en Salas</a>
                                 </li>
                             </ul>
                         </li>
                       
                         <li>
-                            <a href="#"><i class="fa fa-film fa-fw"></i> Pelicula<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
-                                </li>
-                            </ul>
+                            <a href="#"><i class="fa fa-film fa-fw"></i> Reservas</a>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i> Genero<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Generos</a>
-                                </li>
-                            </ul>
-                        </li>
-
                     </ul>
                 </div>
             </div>
