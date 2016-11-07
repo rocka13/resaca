@@ -6,10 +6,11 @@ nav{
     color:#fff;
 }
 footer{
+    position: static;
+    clear: both;
     color: #fff;
     background-color:#303192;
-    border:1px solid rgba(0, 0, 0,.5); 
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 
 footer h4{
@@ -19,8 +20,13 @@ footer h4 a{
     color:#428bca;
 }
 
+#titulo{
+    color: #fff;
+}
+
 #wrapper {
     width: 100%;
+    height: 740px;
     background: url('../imagenes/bg_header.png');
     background-size: 100%;
     background-repeat:no-repeat;
@@ -28,23 +34,19 @@ footer h4 a{
 
 #page-wrapper {
     padding: 0 15px;
-    min-height: 568px;
  
 }
 
-@media(min-width:768px) {
+
     #page-wrapper {
         position: inherit;
-        margin: 0 0 0 250px;
+        margin-left:250px;
         padding: 0 30px;
-        border-left: 1px solid;
     }
-}
 .navbar{
         background-color:#8C0404; 
         color:#fff;
 }
-
 .navbar-top-links {
     margin-right: 0;
 }
@@ -60,9 +62,17 @@ footer h4 a{
 .navbar-top-links li a {
     padding: 15px;
     min-height: 50px;
+    color:#fff;
+
 }
+.navbar-top-links li a ul li a{
+    color:#000;
+
+}
+
 .navbar-top-links .dropdown-menu li {
     display: block;
+
 }
 
 .navbar-top-links .dropdown-menu li:last-child {
@@ -71,44 +81,20 @@ footer h4 a{
 
 .navbar-top-links .dropdown-menu li a {
     padding: 3px 20px;
-    min-height: 0;
-}
-
-.navbar-top-links .dropdown-messages,
-.navbar-top-links .dropdown-tasks,
-.navbar-top-links .dropdown-alerts {
-    width: 310px;
-    min-width: 0;
-}
-
-.navbar-top-links .dropdown-messages {
-    margin-left: 5px;
-}
-
-.navbar-top-links .dropdown-tasks {
-    margin-left: -59px;
-}
-
-.navbar-top-links .dropdown-alerts {
-    margin-left: -123px;
 }
 
 .navbar-top-links .dropdown-user {
     right: 0;
     left: auto;
 }
-
-.sidebar .sidebar-nav.navbar-collapse {
-    padding-right: 0;
-    padding-left: 0;
+.navbar-top-links .dropdown-user li a {
+   color:#000;
 }
-
-.sidebar .sidebar-search {
-    padding: 15px;
+.sidebar{
+     background-color: #8C0404;
 }
-
-.sidebar ul li {
-    border-bottom: 1px solid rgba(0,0,0,.5);
+.sidebar ul li a{
+color: #fff;
 }
 
 .sidebar ul li a.active {
@@ -140,7 +126,7 @@ footer h4 a{
     padding-left: 52px;
 }
 
-@media(min-width:768px) {
+
     .sidebar {
         z-index: 1;
         position: absolute;
@@ -216,3 +202,7 @@ table.dataTable thead .sorting:after {
     font-family: fontawesome;
     color: rgba(50,50,50,.5);
 }
+
+.red{border: 1px solid red;}
+.yellow{border:1px solid yellow;}
+.green{border: 1px solid green;}
