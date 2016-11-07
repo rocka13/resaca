@@ -1,0 +1,58 @@
+body {
+    background-color:#fff;
+}
+nav{
+    color:#fff;
+}
+footer{
+    position: static;
+    clear: both;
+    color: #fff;
+    background-color:#303192;
+    padding-bottom: 40px;
+}
+
+footer h4{
+    padding-left: 10px;
+}
+footer h4 a{
+    color:#428bca;
+}
+
+#titulo{
+    color: #fff;
+}
+#wrapper {
+    width: 100%;
+    height: 740px;
+    background: url('../imagenes/bg_header.png');
+    background-size: 100%;
+    background-repeat:no-repeat;
+}
+
+.navbar{
+        background-color:#8C0404; 
+}
+.navbar-top-links li a {
+    color:#fff;
+
+}
+.navbar-top-links li a:hover {
+    background-color:rgba(0,0,0,.5);
+
+}
+.sidebar{
+    background-color:#8C0404; 
+}
+.sidebar li a{
+        color:#fff;
+}
+.sidebar li a:hover{
+        background-color:rgba(0,0,0,.5);
+}
+.sidebar li a:active{
+       color:#000;
+}
+.sidebar li:active{
+       color:#000;
+}
