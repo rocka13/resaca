@@ -2,7 +2,7 @@
 <div class="table-responsive">
 <table class="table table-bordered cell-border table-hover" id="MyTable">
   <thead>
-    <tr>
+    <tr class="active">
         <th class="text-center">ID</th>
         <th class="text-center">Nombre</th>
         <th class="text-center">Descripcion</th>
@@ -37,7 +37,7 @@
     @endforeach
   </tbody>
   <tfoot>
-    <tr>
+    <tr class="active">
           <th class="text-center">ID</th>
         <th class="text-center">Nombre</th>
         <th class="text-center">Descripcion</th>

@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
-
-{!!Html::style("css/dataTables.bootstrap.min.css")!!}
 {!!Html::style("css/bootstrap.min.css")!!}
+{!!Html::style("css/dataTables.bootstrap.min.css")!!}
 {!!Html::style("css/responsive.bootstrap.min.css")!!}
 {!!Html::style("css/font-awesome.min.css")!!}
 {!!Html::style("css/sb-admin-2.css")!!}
@@ -27,7 +26,7 @@
         
         <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-responsive">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -36,22 +35,27 @@
                 <a class="navbar-brand" href="index.html" id="titulo">Reservas de Salas Académicas</a>
             </div>
            
-<div class="collapse navbar-collapse" id="usuario">
+<div class="collapse navbar-collapse menu-responsive" id="usuario">
             <ul class="nav navbar-top-links navbar-right">
-                 <li class="dropdown">
+                 <li>
+                    <a href="#">
+                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-reply"></i>
+                    </a>
+                </li>
+               <!--  <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user" role="menu">
                         <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
             </ul>
 </div>
-            <div class="navbar-default sidebar hidden-xs" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+            <div class="navbar-default sidebar " role="navigation">
+                <div class="sidebar-nav navbar-collapse collapse  menu-responsive" id="navbar-collapse">
+                    <ul class="nav " id="side-menu">
                     <li>
                             <a id="administrar" href=""><i class="fa fa-table  fa-fw"></i> Administrar<span class="fa abajo"></span></a>
                             <ul class="nav nav-second-level" id="administrar-oculto">
