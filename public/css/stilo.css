@@ -64,6 +64,18 @@ nav.navbar{
     display: none;
 }
 
+#panel{
+    margin-top: 20px;
+}
+#nuevo{
+     margin-bottom: 20px;
 
 
+}
 
+.fondo{
+    background-color: rgba(256,256,256,.1);
+}
+.panel-body{
+    background-color: #fff;
+}
