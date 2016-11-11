@@ -1,7 +1,7 @@
 <?php
 
-usIlluminate\Database\Schema\Blueprint;
-ue se Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateUsuariosTable extends Migration {
 
@@ -17,9 +17,9 @@ class CreateUsuariosTable extends Migration {
 			$table->increments('id');
 			$table->string('nombres', 80);
 			$table->string('apellidos', 80);
-			$table->bigInt('id_user_ryca', 20);
+			$table->bigInteger('id_user_ryca');
 			$table->string('profile_ryca', 45);
-			$table->tinyInt('es_superadmin', 1);
+			$table->tinyInteger('es_superadmin');
 			$table->timestamps();
 		});
 	}

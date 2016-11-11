@@ -45,8 +45,8 @@ class elementos_salasController extends Controller {
 	 */
 	public function create()
 	{
-		$salas = salas::lists('nombre','id');
-		$elementos = elementos::lists('nombre','id');
+		$salas = salas::all();
+		$elementos = elementos::all();
 		return view('elementos_salas.create', compact('salas','elementos'));
 	}
 
@@ -85,10 +85,21 @@ class elementos_salasController extends Controller {
 	 */
 	public function edit($id)
 	{	
-		$salas = salas::lists('nombre','id');
-		$elementos = elementos::lists('nombre','id');
+
+		$elemento =  \DB::table('elementos_salas')
+					->select('elementos.nombre','elementos_salas.elemento_id')
+					->join('elementos', 'elementos_salas.elemento_id', '=', 'elementos.id')
+					->where('elementos_salas.id', '=', $id)
+					->get();
+		$sala =		\DB::table('elementos_salas')
+					->select('salas.nombre','elementos_salas.sala_id')
+					->join('salas', 'elementos_salas.sala_id', '=', 'salas.id')
+					->where('elementos_salas.id', '=', $id)
+					->get();
+		$salas = salas::all();
+		$elementos = elementos::all();
 		 $elementos_salas =elementos_salas::find($id);
-       return view('elementos_salas.edit', compact('salas','elementos'))->with('elementos_salas',$elementos_salas);
+       return view('elementos_salas.edit', compact('salas','sala','elemento','elementos'))->with('elementos_salas',$elementos_salas);
 	}
 
 	/**

@@ -4,6 +4,6 @@
 </div>
 <div class="form-group">
     {!! Form::label('aula_ryca', 'aula_ryca', ['for' => 'descripcion'] ) !!}
-    {!! Form::text('aula_ryca', null , ['class' => 'form-control', 'id' => 'aula_ryca', 'placeholder' => 'aula ryca' ]  ) !!}
+    {!! Form::text('id_aula_ryca', null , ['class' => 'form-control', 'id' => 'aula_ryca', 'placeholder' => 'aula ryca' ]  ) !!}
 </div>
 

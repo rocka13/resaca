@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
@@ -26,11 +24,6 @@ Route::controllers([
 
  Route::get('ver/elementos/{id}', array('as' => 'ver/elementos', 'uses' => 'elementos_salasController@ver'));
 
- 
-/*
- Route::get('elementos/create', function(){
- 	$tipos = tipo_elementos::all();
- 	return view::make('edit')->with('tipos', $tipos);
- });
-
- */
+ Route::resource('reservas','reservasController');
+ Route::get('buscar', 'reservasController@buscar');
+  Route::resource('usuarios','usuariosController');

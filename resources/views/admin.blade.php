@@ -12,6 +12,7 @@
 {!!Html::style("css/dataTables.bootstrap.min.css")!!}
 {!!Html::style("css/responsive.bootstrap.min.css")!!}
 {!!Html::style("css/font-awesome.min.css")!!}
+{!!Html::style("css/select2.min.css")!!}
 {!!Html::style("css/sb-admin-2.css")!!}
 {!!Html::style("css/stilo.css")!!}
 
@@ -72,6 +73,9 @@
                                   <li>
                                     <a href="{!! URL::to('elementos_salas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Elementos en Salas</a>
                                 </li>
+                                    <li>
+                                    <a href="{!! URL::to('reservas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Reservas</a>
+                                </li>
                             </ul>
                         </li>
                       
@@ -96,8 +100,9 @@
     {!!Html::script("js/jquery.js")!!}
     {!!Html::script("js/bootstrap.min.js")!!}
     {!! Html::script("js/jquery.dataTables.min.js") !!}
-    {!! Html::script("js/jquery.table-sort.js") !!}
     {!! Html::script("js/dataTables.responsive.min.js") !!}
+    {!! Html::script("js/dataTables.bootstrap.min.js") !!}
+    {!! Html::script("js/select2.min.js") !!}
     <script>
         $(document).ready(function(){
             $('#MyTable').dataTable();
@@ -115,6 +120,12 @@
         }
 
     </script>
+
+    <script type="text/javascript">
+$(document).ready(function() {
+  $(".select").select2();
+});
+</script>
 </body>
 
 </html>

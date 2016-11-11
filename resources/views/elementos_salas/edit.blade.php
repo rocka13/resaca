@@ -3,15 +3,27 @@
 @section('content')
     
     {!! Form::model($elementos_salas, [ 'route' => ['elementos_salas.update', $elementos_salas], 'method' => 'PUT']) !!}
-       <div class="form-group">
-		</div>
 		<div class="form-group">
         {!! Form::label('salas', 'salas', ['for' => 'salas'] ) !!}
-        {!! Form::select('sala_id', [$salas], null, ['class' => 'form-control'])!!}
+        <select name="sala_id" class="form-control select">
+            @foreach($sala as $result)
+                <option value="{{ $result->sala_id }}">{{ $result->nombre }}</option>
+            @endforeach
+            @foreach($salas as $result2)
+                <option value="{{ $result2->id }}">{{ $result2->nombre }}</option>
+            @endforeach
+        </select>
 		</div>
 		 <div class="form-group">
-         {!! Form::label('elementos', 'elementos', ['for' => 'elementos'] ) !!}
-        {!! Form::select('elemento_id', [$elementos], null,  ['class' => 'form-control'])!!}
+         {!! Form::label('select2', 'elementos', ['for' => 'elementos'] ) !!}
+           <select name="elemento_id" class="form-control select">
+            @foreach($elemento as $result3)
+                <option value="{{$result3->elemento_id}}">{{$result3->nombre}}</option>
+            @endforeach
+            @foreach($elementos as $result4)
+                <option value="{{$result4->id}}">{{$result4->nombre}}</option>
+            @endforeach
+        </select>
 		</div>
         @include('elementos_salas.partials.fields')
         <button type="submit" class="btn btn-success">Guardar cambios</button>

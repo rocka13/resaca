@@ -37,7 +37,7 @@ class salasController extends Controller {
 	{
 		$salas = new salas;
         $salas->nombre = $request->input('nombre');
-        $salas->id_aula_ryca = $request->input('aula_ryca');
+        $salas->id_aula_ryca = $request->input('id_aula_ryca');
 
         $salas->save();
 
@@ -77,7 +77,7 @@ class salasController extends Controller {
 	{
 		 $salas = salas::find($id);
         $salas->nombre = $request->input('nombre');
-        $salas->id_aula_ryca = $request->input('aula_ryca');
+        $salas->id_aula_ryca = $request->input('id_aula_ryca');
         $salas->save();
         return redirect()->route('salas.index');
 

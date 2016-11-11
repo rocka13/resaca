@@ -31,9 +31,8 @@ class elementosController extends Controller {
 	 */
 	public function create()
 	{	
-		$tipo = \resaca\tipo_elementos::lists('descripcion','id');//con este codigo llamo los campos descripcion y id
-
-		return view('elementos.create', compact('tipo')/*con este los envio a create*/);
+		$tipo = tipo_elementos::all();
+		return view('elementos.create', compact('tipo'));
 	}
 
 	/**
@@ -41,7 +40,7 @@ class elementosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 	
 		$elementos = new elementos;
@@ -73,9 +72,15 @@ class elementosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$tipo = \resaca\tipo_elementos::lists('descripcion','id');
+		$tipo = \DB::table('elementos')
+					->select('tipo_elementos.descripcion','elementos.tipo_elemento_id')
+					->join('tipo_elementos', 'elementos.tipo_elemento_id', '=', 'tipo_elementos.id')
+					->where('elementos.id', '=', $id)
+					->get();
+					//dd($tipo);
+		$tipos = tipo_elementos::all();
 		$elementos = elementos::find($id);
-        return view('elementos.edit', compact('tipo'))->with('elementos',$elementos);
+        return view('elementos.edit', compact('tipo','tipos'))->with('elementos',$elementos);
 	}
 
 	/**
