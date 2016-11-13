@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('content')
-    
+    @include('alertas.request')
     {!! Form::model($elementos, [ 'route' => ['elementos.update', $elementos], 'method' => 'PUT']) !!}
         @include('elementos.partials.fields')
          <div class="form-group">

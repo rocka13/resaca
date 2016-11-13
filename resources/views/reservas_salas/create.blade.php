@@ -1,6 +1,7 @@
 @extends('admin')
 
 @section('content')
+@include('alertas.request')
     {!! Form::open([ 'route' => 'reservas.store', 'method' => 'POST']) !!}
          
          <div class="form-group row">

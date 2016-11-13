@@ -1,6 +1,7 @@
 @extends('admin')
 
 @section('content')
+@include('alertas.request')
     {!! Form::open([ 'route' => 'elementos_salas.store', 'method' => 'POST']) !!}
         <div class="form-group">
         {!! Form::label('salas', 'salas', ['for' => 'salas'] ) !!}

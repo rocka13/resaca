@@ -2,7 +2,10 @@
 
 use resaca\Http\Requests;
 use resaca\Http\Controllers\Controller;
+use resaca\salas;
+use resaca\reservas_salas;
 use resaca\usuarios;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class usuariosController extends Controller {
@@ -14,8 +17,13 @@ class usuariosController extends Controller {
 	 */
 	public function index()
 	{
-		$tipo = usuarios::all();
-		return view('usuarios.index', compact('tipo')/*con este los envio a create*/);
+		$reservas = \DB::table('reservas_salas')
+					->select('usuarios.nombres as nom_user','usuarios.apellidos as ape_user','salas.nombre as sala','reservas_salas.*')
+					->join('usuarios', 'reservas_salas.usuario_id', '=', 'usuarios.id')
+					->join('salas', 'reservas_salas.sala_id', '=', 'salas.id')
+					->get();
+		
+		return view('usuarios.index')->with('reservas', $reservas);
 	}
 
 	/**

@@ -1,6 +1,7 @@
 @extends('admin')
 
 @section('content')
+@include('alertas.request')
     
     {!! Form::model($reservas, [ 'route' => ['reservas.update', $reservas], 'method' => 'PUT']) !!}
 

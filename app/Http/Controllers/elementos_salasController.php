@@ -1,6 +1,7 @@
 <?php namespace resaca\Http\Controllers;
 
 use resaca\Http\Requests;
+use resaca\Http\Requests\elementos_salasRequest;
 use resaca\Http\Controllers\Controller;
 use resaca\salas;
 use resaca\elementos_salas;
@@ -55,7 +56,7 @@ class elementos_salasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(elementos_salasRequest $request)
 	{
 		$elementos_salas = new elementos_salas;
 		$elementos_salas->sala_id = $request->input('sala_id');
@@ -107,7 +108,7 @@ class elementos_salasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(elementos_salasRequest $request, $id)
 	{
 		$elementos_salas = elementos_salas::find($id);
 		$elementos_salas->sala_id = $request->input('sala_id');

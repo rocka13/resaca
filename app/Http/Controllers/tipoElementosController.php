@@ -1,6 +1,7 @@
 <?php namespace resaca\Http\Controllers;
 
 use resaca\Http\Requests;
+use resaca\Http\Requests\tipo_elementoRequest;
 use resaca\Http\Controllers\Controller;
 use resaca\tipo_elementos;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class tipoElementosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(tipo_elementoRequest $request)
 	{
 		
 		$tipo_elementos = new tipo_elementos;
@@ -73,7 +74,7 @@ class tipoElementosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	 public function update(Request $request, $id)
+	 public function update(tipo_elementoRequest $request, $id)
     {
         $tipo_elementos = tipo_elementos::find($id);
         $tipo_elementos->descripcion = $request->input('descripcion');

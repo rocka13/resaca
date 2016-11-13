@@ -1,6 +1,6 @@
 @extends('admin')
-
 @section('content')
+@include('alertas.request')
     {!! Form::open([ 'route' => 'salas.store', 'method' => 'POST']) !!}
         @include('salas.partials.fields')
 

@@ -92,6 +92,7 @@
      </nav>
 
         <div id="page-wrapper">
+        <br>
             @yield('content')
         </div>
 

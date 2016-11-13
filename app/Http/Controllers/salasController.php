@@ -1,6 +1,7 @@
 <?php namespace resaca\Http\Controllers;
 
 use resaca\Http\Requests;
+use resaca\Http\Requests\salasRequest;
 use resaca\Http\Controllers\Controller;
 use resaca\salas;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class salasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(salasRequest $request)
 	{
 		$salas = new salas;
         $salas->nombre = $request->input('nombre');
@@ -73,7 +74,7 @@ class salasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(salasRequest $request, $id)
 	{
 		 $salas = salas::find($id);
         $salas->nombre = $request->input('nombre');

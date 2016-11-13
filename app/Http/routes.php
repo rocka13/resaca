@@ -25,5 +25,6 @@ Route::controllers([
  Route::get('ver/elementos/{id}', array('as' => 'ver/elementos', 'uses' => 'elementos_salasController@ver'));
 
  Route::resource('reservas','reservasController');
+ Route::resource('usuarios','usuariosController');
  //Route::get('ver/usuarios',array('as'=>'reservas.usuarios','uses' => 'reservasController@usuarios'));
  Route::get('reservas/buscar/{usuario}',array('as'=>'reservas.buscar','uses' => 'reservasController@buscar'));

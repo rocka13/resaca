@@ -1,6 +1,7 @@
 <?php namespace resaca\Http\Controllers;
 
 use resaca\Http\Requests;
+use resaca\Http\Requests\reservasRequest;
 use resaca\Http\Controllers\Controller;
 use resaca\salas;
 use resaca\reservas_salas;
@@ -30,16 +31,13 @@ class reservasController extends Controller {
 
 	public function index()
 	{
-			$fecha= \DB::table('reservas_salas')
-			->select('reservas_salas.hora_inicio')
-			->where('reservas_salas.id', '=', 3)
-			->get();
 	
 		$reservas = \DB::table('reservas_salas')
 					->select('usuarios.nombres as nom_user','usuarios.apellidos as ape_user','salas.nombre as sala','reservas_salas.*')
 					->join('usuarios', 'reservas_salas.usuario_id', '=', 'usuarios.id')
 					->join('salas', 'reservas_salas.sala_id', '=', 'salas.id')
 					->get();
+		
 		return view('reservas_salas.index')->with('reservas', $reservas);
 	}
 
@@ -62,12 +60,11 @@ class reservasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(reservasRequest $request)
 	{
 
 		$date = Carbon::now();
 		$date = $date->format('Y-m-d');
-
 		$reservas = new reservas_salas;
 		$reservas->usuario_id = $request->input('usuario_id');
         $reservas->sala_id = $request->input('sala_id');
@@ -124,7 +121,7 @@ class reservasController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(reservasRequest $request, $id)
 	{
 
 		$reservas = reservas_salas::find($id);

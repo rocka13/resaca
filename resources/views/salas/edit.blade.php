@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('content')
-    
+    @include('alertas.request')
     {!! Form::model($salas, [ 'route' => ['salas.update', $salas], 'method' => 'PUT']) !!}
        <div class="form-group">
 		</div>
