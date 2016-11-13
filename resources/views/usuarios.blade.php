@@ -7,19 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-        {!!Html::style("css/select2.min.css")!!}
-        {!!Html::style("css/bootstrap.min.css")!!}
-        {!!Html::style("css/dataTables.bootstrap.min.css")!!}
-        {!!Html::style("css/responsive.bootstrap.min.css")!!}
-        {!!Html::style("css/font-awesome.min.css")!!}
-        {!!Html::style("css/sb-admin-2.css")!!}
-        {!!Html::style("css/stilo.css")!!}
+{!!Html::style("css/select2.min.css")!!}
+{!!Html::style("css/bootstrap.min.css")!!}
+{!!Html::style("css/dataTables.bootstrap.min.css")!!}
+{!!Html::style("css/responsive.bootstrap.min.css")!!}
+{!!Html::style("css/font-awesome.min.css")!!}
+{!!Html::style("calendario/css/bootstrap-datepicker.standalone.min.css")!!}
+{!!Html::style("calendario/css/bootstrap-datepicker3.min.css")!!}
+{!!Html::style("css/sb-admin-2.css")!!}
+{!!Html::style("css/stilo.css")!!}
 
-        {!!Html::style("timepicker/jquery.timepicker.css")!!}
-        {!!Html::style("timepicker/bootstrap-datepicker.css")!!}
-        {!!Html::style("timepicker/site.css")!!}
-        
-        
+
 
 </head>
 
@@ -46,13 +44,6 @@
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-reply"></i>
                     </a>
                 </li>
-               <!--  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user" role="menu">
-                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li> -->
                     </ul>
                 </li>
             </ul>
@@ -61,25 +52,8 @@
                 <div class="sidebar-nav navbar-collapse collapse  menu-responsive" id="navbar-collapse">
                     <ul class="nav " id="side-menu">
                     <li>
-                            <a id="administrar" href=""><i class="fa fa-table  fa-fw"></i> Administrar<span class="fa abajo"></span></a>
-                            <ul class="nav nav-second-level" id="administrar-oculto">
-                                <li>
-                                    <a href="{!! URL::to('tipo_elementos') !!}"><i class='fa fa-list-ol fa-fw'></i> Tipo Elemento</a>
-                                </li>
-
-                                <li>
-                                    <a href="{!! URL::to('elementos') !!}"><i class='fa fa-list-ol  fa-fw'></i> Elementos</a>
-                                </li>
-                                  <li>
-                                    <a href="{!! URL::to('salas') !!}"><i class='fa fa-list-ol  fa-fw'></i> Salas</a>
-                                </li>
-                                  <li>
-                                    <a href="{!! URL::to('elementos_salas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Elementos en Salas</a>
-                                </li>
-                                    <li>
-                                    <a href="{!! URL::to('reservas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Reservas</a>
-                                </li>
-                            </ul>
+                            <a id="administrar" href=""><i class="fa fa-table  fa-fw"></i> Mis reservas</a>
+                            
                         </li>
                       
                         <li>
@@ -106,18 +80,11 @@
     {!! Html::script("js/jquery.dataTables.min.js") !!}
     {!! Html::script("js/dataTables.responsive.min.js") !!}
     {!! Html::script("js/dataTables.bootstrap.min.js") !!}
-
-    {!! Html::script("timepicker/jquery.timepicker.min.js") !!}
-    {!! Html::script("timepicker/bootstrap-datepicker.js") !!}
-    {!! Html::script("timepicker/site.js") !!}
-    {!! Html::script("timepicker/bootstrap-datepicker.es.min.js") !!}
-
-
-
-
+    {!! Html::script("calendario/js/bootstrap-datepicker.min.js") !!}
+    {!! Html::script("calendario/locales/bootstrap-datepicker.es.min.js") !!}
     <script>
         $(document).ready(function(){
-            tablas();
+            $('#MyTable').dataTable();
             administrar();
             seleccion();
             calendario();
@@ -125,15 +92,6 @@
 
         });
 
-//--------------------------------datatables---------------------
-
-        function tablas(){
-
-            $('#MyTable').dataTable({
-                "order": [[ 0, 'desc' ], [ 1, 'desc' ]]
-            });
-            
-        }
 //--------------------------------------togle de mostrar y ocultar administrar
         function administrar()
         {
@@ -150,21 +108,14 @@
 //-----------------------------calendario dinamico-------------------------
        function calendario()
        {
-        $.fn.datepicker.defaults.format = "yyyy/mm/dd";
-         $('.calendario').datepicker({
-            format: "yyyy/mm/dd",
-            language: "es",
-            autoclose: true
-    });
-                    
+        $(function() {
+            $('.calendario').datetimepicker({
+            pickTime: false
+                                                });
+                        });
        }
 
 //----------------------------calendario hora---------------------------
-
-        function hora()
-        {
-           $('.hora').timepicker({ 'timeFormat': 'H:i' });
-        }
     </script>
 
    

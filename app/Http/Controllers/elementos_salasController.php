@@ -85,7 +85,6 @@ class elementos_salasController extends Controller {
 	 */
 	public function edit($id)
 	{	
-
 		$elemento =  \DB::table('elementos_salas')
 					->select('elementos.nombre','elementos_salas.elemento_id')
 					->join('elementos', 'elementos_salas.elemento_id', '=', 'elementos.id')
