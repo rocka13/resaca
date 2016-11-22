@@ -33,7 +33,8 @@ class usuariosController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$salas = salas::all();
+		return view('usuarios.create', compact('usuarios', 'salas'));
 	}
 
 	/**

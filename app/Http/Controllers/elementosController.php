@@ -51,7 +51,7 @@ class elementosController extends Controller {
         $elementos->save();
         
 
-        return redirect()->route('elementos.index');
+        return redirect()->route('elementos.index')->with('message','Elemento creado con exito');
 	}
 
 	/**
@@ -97,7 +97,7 @@ class elementosController extends Controller {
         $elementos->descripcion = $request->input('descripcion');
         $elementos->tipo_elemento_id = $request->input('tipo_elemento_id');
         $elementos->save();
-        return redirect()->route('elementos.index');
+        return redirect()->route('elementos.index')->with('message','Elemento Editado Correctamente');
     }
 
 	/**

@@ -42,7 +42,7 @@ class salasController extends Controller {
 
         $salas->save();
 
-        return redirect()->route('salas.index');
+        return redirect()->route('salas.index')->with('message','Aula creada Correctamente');
 	}
 
 	/**
@@ -80,7 +80,7 @@ class salasController extends Controller {
         $salas->nombre = $request->input('nombre');
         $salas->id_aula_ryca = $request->input('id_aula_ryca');
         $salas->save();
-        return redirect()->route('salas.index');
+        return redirect()->route('salas.index')->with('message','Aula editada Correctamente');
 
 	}
 

@@ -16,6 +16,7 @@
                     <th class="text-center">Fecha Reserva</th>
                     <th class="text-center">Hora Inicio</th>
                     <th class="text-center">Hora Final</th>
+                    <th class="text-center">Detalle</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -28,13 +29,17 @@
                     <td class="text-center">{{ $telementos->fecha_servicio }}</td>
                     <td class="text-center">{{ $telementos->hora_inicio }}</td>
                     <td class="text-center">{{ $telementos->hora_final }}</td>
+                    <td class="text-center">{{ $telementos->detalle_reserva }}</td>
     {!! Form::open(['route' => ['reservas.destroy', $telementos->id], 'method' => 'DELETE']) !!}
                     <td class="text-center">
                         <button type="submit" class="btn btn-danger btn-xs">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
-                        <a href="{{ url('/reservas/'.$telementos->id.'/edit') }}" class="btn btn-info btn-xs">
+                        <a href="{{ url('/reservas/'.$telementos->id.'/edit')}}" class="btn btn-info btn-xs">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </a> 
+                          <a href="{{ url('/confirmar/'.$telementos->id) }}" class="btn @if($telementos->confirmar == 0){{ $confirmar = "btn-warning"}}@else{{ $confirmar = "btn-success" }}@endif {{$confirmar}} btn-xs">
+                            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
                         </a>
                     </td>
     {!! Form::close() !!}
@@ -49,6 +54,7 @@
                     <th class="text-center">Fecha Reserva</th>
                     <th class="text-center">Hora Inicio</th>
                     <th class="text-center">Hora Final</th>
+                    <th class="text-center">Detalle</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </tfoot>

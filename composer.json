@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravelcollective/html": "~5.0",
-		"laravel/framework": "5.0.*",
+		"laravelcollective/html": "5.1.*",
+		"laravel/framework": "5.1.*",
 		"nesbot/carbon": "^1.21"
 	},
 	"require-dev": {
@@ -42,5 +42,7 @@
 	},
 	"config": {
 		"preferred-install": "dist"
-	}
+	},
+	"minimum-stability": "dev",
+    "prefer-stable": true
 }

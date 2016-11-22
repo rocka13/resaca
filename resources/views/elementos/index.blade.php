@@ -1,5 +1,6 @@
 @extends('admin')
 
-@section('content') 
+@section('content')
+@include('alertas.success')
     @include('elementos.partials.table')
 @endsection

@@ -28,16 +28,71 @@ class reservasController extends Controller {
 		$usuario = $request->input('usuario');
 		dd($request);
 	}*/
+		
+
+		public function confirmar($id)
+		{
+		$reservas = reservas_salas::find($id);
+		$reservas->confirmar = 1;
+        $reservas->save();
+        return redirect()->route('reservas.index')->with('message','La Reserva se ha Confirmado');
+		}
+
+		
+	/*	public function DiferenciasHoras()
+		{
+		    return reservas_salas::where('fecha_servicio', '=', '2016/11/17')->get()->map(function($record){
+		        $hora_inicio = carbon::createFromFormat('H:i:s', $record->hora_inicio);
+		        $hora_final = carbon::createFromFormat('H:i:s', $record->hora_final);
+//++$hora_inicio;
+		       // ++$hora_final;
+		        $horainicio = $hora_inicio->hour;
+				$horafinal = $hora_final->hour;
+
+		        //$hora_final_denegada = '"'.$horainicio .':00"'.', "'.$horafinal .':00"';
+		        $hora_final_denegada = $horainicio .':00'.', '.$horafinal .':00';
+		        dd($hora_final_denegada);
+		        return $hora_final_denegada;
+							});
+		}*/
+
+public function DiferenciasHoras($age, $mes, $dia, $aula)
+{
+//----------------------------------------inicio--------------------------------
+	$inicio = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
+						 ->where('sala_id', '=', $aula)
+						 ->get()->map(function ($record) {
+    	$hora_inicio = carbon::createFromFormat('H:i:s', $record->hora_inicio);
+        $hora_final = carbon::createFromFormat('H:i:s', $record->hora_final);
+        return [$hora_inicio->toTimeString(), $hora_final->toTimeString()];        
+    });
+//----------------------------------------final--------------------------------
+
+	$final = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
+						 ->where('sala_id', '=', $aula)
+						 ->get()->map(function ($record) {
+        $horainicio = carbon::createFromFormat('H:i:s', $record->hora_inicio)->addHours(1);
+        $horafinal = carbon::createFromFormat('H:i:s', $record->hora_final)->addHours(1);;
+        return  [$horainicio->toTimeString(), $horafinal->toTimeString()];        
+    });
+//_____________________________return final________________________________________
+	
+		$data = ['inicio' => $inicio, 'final' => $final];
+		 return response()->json([$data]);
+}
+
 
 	public function index()
-	{
-	
+	{	
+		//$diferencia = ['diferencia' => $this->DiferenciasHoras()];
+		//dd($diferencia);
+		
 		$reservas = \DB::table('reservas_salas')
 					->select('usuarios.nombres as nom_user','usuarios.apellidos as ape_user','salas.nombre as sala','reservas_salas.*')
 					->join('usuarios', 'reservas_salas.usuario_id', '=', 'usuarios.id')
 					->join('salas', 'reservas_salas.sala_id', '=', 'salas.id')
 					->get();
-		
+
 		return view('reservas_salas.index')->with('reservas', $reservas);
 	}
 
@@ -62,19 +117,19 @@ class reservasController extends Controller {
 	 */
 	public function store(reservasRequest $request)
 	{
-
 		$date = Carbon::now();
 		$date = $date->format('Y-m-d');
 		$reservas = new reservas_salas;
 		$reservas->usuario_id = $request->input('usuario_id');
         $reservas->sala_id = $request->input('sala_id');
  		$reservas->fecha_registro = $date;
+ 		$reservas->detalle_reserva = $request->input('detalle_reserva');
         $reservas->fecha_servicio = $request->input('fecha_servicio');
         $reservas->hora_inicio = $request->input('hora_inicio');
         $reservas->hora_final = $request->input('hora_final');
         $reservas->save();
 
-        return redirect()->route('reservas.index');
+        return redirect()->route('reservas.index')->with('message','La Reserva se creo Correctamente');
 	}
 
 	/**
@@ -123,15 +178,15 @@ class reservasController extends Controller {
 	 */
 	public function update(reservasRequest $request, $id)
 	{
-
 		$reservas = reservas_salas::find($id);
 		$reservas->usuario_id = $request->input('usuario_id');
         $reservas->sala_id = $request->input('sala_id');
+        $reservas->detalle_reserva = $request->input('detalle_reserva');
         $reservas->fecha_servicio = $request->input('fecha_servicio');
         $reservas->hora_inicio = $request->input('hora_inicio');
         $reservas->hora_final = $request->input('hora_final');
         $reservas->save();
-        return redirect()->route('reservas.index');
+        return redirect()->route('reservas.index')->with('message','La Reserva se edito Correctamente');
 	}
 
 	/**

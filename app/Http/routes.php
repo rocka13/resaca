@@ -11,20 +11,31 @@
 |
 */
 
-Route::get('home', 'HomeController@index');
+Route::get('/', function(){
+	return view('login');
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::resource('login', 'LoginController');
+
  Route::resource('salas', 'salasController');
- Route::resource('elementos', 'elementosController');
- Route::resource('tipo_elementos', 'tipoElementosController');
- Route::resource('elementos_salas','elementos_salasController');
 
+ Route::resource('elementos', 'elementosController');
+
+ Route::resource('tipo_elementos', 'tipoElementosController');
+
+ Route::resource('elementos_salas','elementos_salasController');
  Route::get('ver/elementos/{id}', array('as' => 'ver/elementos', 'uses' => 'elementos_salasController@ver'));
 
  Route::resource('reservas','reservasController');
- Route::resource('usuarios','usuariosController');
- //Route::get('ver/usuarios',array('as'=>'reservas.usuarios','uses' => 'reservasController@usuarios'));
+ Route::get('confirmar/{id}', array('as' => 'confirmar', 'uses' => 'reservasController@confirmar'));
  Route::get('reservas/buscar/{usuario}',array('as'=>'reservas.buscar','uses' => 'reservasController@buscar'));
+ Route::get('horas/fecha/{age}/{mes}/{dia}/aula/{aula}', 'reservasController@DiferenciasHoras');
+
+ Route::resource('usuarios','usuariosController');
+
+
+
+
+ 
+ 
+ /*Route::get('horas', 'reservasController@DiferenciasHoras');*/

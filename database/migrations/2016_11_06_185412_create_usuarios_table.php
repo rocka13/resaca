@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration {
 			$table->increments('id');
 			$table->string('nombres', 80);
 			$table->string('apellidos', 80);
+			$table->string('email')->unique();
 			$table->bigInteger('id_user_ryca');
 			$table->string('profile_ryca', 45);
 			$table->tinyInteger('es_superadmin');

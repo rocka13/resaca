@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{!! csrf_token() !!}" />
     <title></title>
         {!!Html::style("css/select2.min.css")!!}
         {!!Html::style("css/bootstrap.min.css")!!}
@@ -24,7 +25,6 @@
 </head>
 
 <body>
-
     <div id="wrapper">
 
         
@@ -81,10 +81,6 @@
                                 </li>
                             </ul>
                         </li>
-                      
-                        <li>
-                            <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Reservas</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,63 +108,7 @@
     {!! Html::script("timepicker/bootstrap-datepicker.js") !!}
     {!! Html::script("timepicker/site.js") !!}
     {!! Html::script("timepicker/bootstrap-datepicker.es.min.js") !!}
-
-
-
-
-    <script>
-        $(document).ready(function(){
-            tablas();
-            administrar();
-            seleccion();
-            calendario();
-            hora();
-
-        });
-
-//--------------------------------datatables---------------------
-
-        function tablas(){
-
-            $('#MyTable').dataTable({
-                "order": [[ 0, 'desc' ], [ 1, 'desc' ]]
-            });
-            
-        }
-//--------------------------------------togle de mostrar y ocultar administrar
-        function administrar()
-        {
-            $("#administrar").click(function(event){
-                event.preventDefault();
-                $("#administrar-oculto").toggle("fast");
-            });
-        }
-//_______________--select dinamico con busqueda_________________________
-        function seleccion()
-        {
-                $(".select").select2();
-        }
-//-----------------------------calendario dinamico-------------------------
-       function calendario()
-       {
-        $.fn.datepicker.defaults.format = "yyyy/mm/dd";
-         $('.calendario').datepicker({
-            format: "yyyy/mm/dd",
-            language: "es",
-            autoclose: true
-    });
-                    
-       }
-
-//----------------------------calendario hora---------------------------
-
-        function hora()
-        {
-           $('.hora').timepicker({ 'timeFormat': 'H:i' });
-        }
-    </script>
-
-   
+    {!! Html::script("js/myjs.js")!!} 
 </body>
 
 </html>

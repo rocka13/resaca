@@ -64,9 +64,8 @@ class elementos_salasController extends Controller {
 		$elementos_salas->cantidad = $request->input('cantidad');
 		$elementos_salas->save();
 
-		return redirect()->route('elementos_salas.index');
+		return redirect()->route('elementos_salas.index')->with('message','el Elemento en el Aula a sido creado Correctamente');
 	}
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -115,7 +114,7 @@ class elementos_salasController extends Controller {
         $elementos_salas->elemento_id = $request->input('elemento_id');
         $elementos_salas->cantidad = $request->input('cantidad');
         $elementos_salas->save();
-        return redirect()->route('elementos_salas.index');
+        return redirect()->route('elementos_salas.index')->with('message','el Elemento en el Aula a sido editado Correctamente');;
 	}
 
 	/**

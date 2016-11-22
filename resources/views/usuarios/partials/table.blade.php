@@ -6,7 +6,7 @@
       <div class="panel-body">
         <div class="dataTable_wrapper">
           <div class="container-fluid table-responsive">
-          <a class="btn btn-primary pull-right" href="{{ url('/reservas/create') }}" role="button"><span class="glyphicon glyphicon-plus"></span> Reservas</a>
+          <a class="btn btn-primary pull-right" href="{{ url('/usuarios/create') }}" role="button"><span class="glyphicon glyphicon-plus"></span> Reservas</a>
             <table class="table table-bordered cell-border table-hover" id="MyTable">
              <thead>
                 <tr class="active">
