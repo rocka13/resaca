@@ -42,7 +42,7 @@
                 <div class="col-md-2">
                         <label class="label-control">hora de inicio</label>
                     <div class="input-group">
-                       <input name="hora_inicio" type="text" class="btn btn-warning form-control hora1" value="00:00"/>
+                       <input name="hora_inicio" type="text" class="btn form-control hora1" value="00:00"/>
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                  <div class="col-md-2">
                         <label class="label-control">hora de Finalizacion</label>
                     <div class="input-group">
-                       <input name="hora_final" type="text" class="btn btn-warning  form-control hora2" value="00:00"/>
+                       <input name="hora_final" type="text" class="btn form-control hora2" value="00:00"/>
                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>

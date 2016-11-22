@@ -48,7 +48,7 @@
                 <div class="col-md-2">
                         <label class="label-control">hora de inicio</label>
                     <div class="input-group">
-                       <input name="hora_inicio" type="text"  class="btn btn-warning form-control hora1" value="{{$reservas->hora_inicio}}"/>
+                       <input name="hora_inicio" type="text"  class="btn  form-control hora1" value="{{$reservas->hora_inicio}}"/>
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                  <div class="col-md-2">
                         <label class="label-control">hora de Finalizacion</label>
                     <div class="input-group">
-                       <input name="hora_final" type="text" class="btn btn-warning form-control hora2" value="{{$reservas->hora_final}}"/>
+                       <input name="hora_final" type="text" class="btn  form-control hora2" value="{{$reservas->hora_final}}"/>
                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     </div>
                 </div>
