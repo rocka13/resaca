@@ -8,19 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{!! csrf_token() !!}" />
     <title></title>
-        {!!Html::style("css/select2.min.css")!!}
         {!!Html::style("css/bootstrap.min.css")!!}
         {!!Html::style("css/dataTables.bootstrap.min.css")!!}
         {!!Html::style("css/responsive.bootstrap.min.css")!!}
         {!!Html::style("css/font-awesome.min.css")!!}
         {!!Html::style("css/sb-admin-2.css")!!}
         {!!Html::style("css/stilo.css")!!}
-
+        {!!Html::style("css/bootstrap-select.min.css")!!}
+        {!!Html::style("css/select2.min.css")!!}
+       
 
         {!!Html::style("timepicker/jquery.timepicker.css")!!}
         {!!Html::style("timepicker/bootstrap-datepicker.css")!!}
         {!!Html::style("timepicker/site.css")!!}
+
+        <!--css de exportar datatables-->
+        {!!Html::style("css/buttons.dataTables.min.css")!!}
         
+                
         
 
 </head>
@@ -28,7 +33,6 @@
 <body>
     <div id="wrapper">
 
-        
         <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-responsive">
@@ -82,18 +86,7 @@
                                 </li>
                             </ul>
                             <li>
-                            <a id="exportar" href=""><i class="fa fa-line-chart  fa-fw"></i> Reportes<span class="fa abajo"></span></a>
-                            <ul class="nav nav-second-level" id="exportar-oculto">
-                                <li>
-                                    <a id="pdf"><i class='fa fa-file-pdf-o fa-fw'></i>Pdf</a>
-                                </li>
-                                  <li>
-                                    <a id="csv"><i class='fa fa-file-o fa fa-file-word-o  fa-fw'></i> Csv</a>
-                                </li>
-                                    <li>
-                                    <a id="excel"><i class='fa fa-file-excel-o fa-fw'></i> Excel</a>
-                                </li>
-                            </ul>
+                            <a id="exportar" href=""><i class="fa fa-line-chart  fa-fw"></i> Mis Reservas<span class="fa abajo"></span></a>
                         </li>
                         </li>
                     </ul>
@@ -113,9 +106,9 @@
         <h4>© 2016 RYCA <a href="">ITFIP </a> <a href="">developers</a></h4>
     </footer>
     {!!Html::script("js/jquery.js")!!}
-    {!! Html::script("js/select2.min.js") !!}
     {!!Html::script("js/bootstrap.min.js")!!}
     {!! Html::script("js/jquery.dataTables.min.js") !!}
+
     {!! Html::script("js/dataTables.responsive.min.js") !!}
     {!! Html::script("js/dataTables.bootstrap.min.js") !!}
 
@@ -124,14 +117,21 @@
     {!! Html::script("timepicker/site.js") !!}
     {!! Html::script("timepicker/bootstrap-datepicker.es.min.js") !!}
     {!! Html::script("js/myjs.js")!!} 
+    <!--export data tables-->
+    {!!Html::script("js/dataTables.buttons.min.js")!!}
+    {!! Html::script("js/buttons.flash.min.js") !!}
+    {!!Html::script("js/jszip.min.js")!!}
+    {!! Html::script("js/pdfmake.min.js") !!}
+    {!! Html::script("js/vfs_fonts.js") !!}
+    {!! Html::script("js/buttons.html5.min.js") !!}
+     {!! Html::script("js/buttons.print.min.js") !!}
+      {!! Html::script("js/select2.min.js") !!}
+     {!! Html::script("js/bootstrap-select.min.js") !!}
 
-    <!--js para exportar-->
-    {!!Html::script("export/tableExport.js")!!}
-    {!! Html::script("export/jquery.base64.js") !!}
-    {!!Html::script("export/html2canvas.js")!!}
-    {!! Html::script("export/jspdf/jspdf.js") !!}
-    {!! Html::script("export/jspdf/libs/sprintf.js") !!}
-    {!! Html::script("export/jspdf/libs/base64.js") !!}
+
+     
+   
+
 
 </body>
 

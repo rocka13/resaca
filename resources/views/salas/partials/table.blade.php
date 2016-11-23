@@ -1,7 +1,7 @@
 
   <div id="panel" class="panel panel-default fondo">
     <div class="panel-heading" style="background-color: rgba(256,256,256,.1);">
-          <center> <h3 class="text-danger text">Control de Aulas</h3>
+          <center> <h3 class="text-danger text" id="nombre-tabla" >Control de Aulas</h3>
     </div>
                         
       <div class="panel-body">

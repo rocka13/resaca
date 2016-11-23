@@ -7,7 +7,7 @@
          <div class="form-group row">
             <div class="col-md-6">    
         {!! Form::label('usuario', 'Busca el usuario:', ['for' => 'usuario'] ) !!}  
-        <select name="usuario_id" class="form-control select">
+        <select name="usuario_id"  class="form-control select">
             @foreach($usuarios as $result)
                 <option value="{{ $result->id }}">{{ $result->nombres.' '.$result->apellidos }}</option>
             @endforeach
@@ -16,7 +16,7 @@
 
              <div class="col-md-6"> 
                 {!! Form::label('aula', 'Escoge el Aula:', ['for' => 'aula'] )!!}                
-                    <select name="sala_id" id="sala" class="form-control select">
+                    <select name="sala_id" id="sala" class="select form-control">
                 @foreach($salas as $result2)
                     <option value="{{ $result2->id }}">{{ $result2->nombre}}</option>
                 @endforeach
