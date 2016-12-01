@@ -110,7 +110,7 @@ class elementosController extends Controller {
     {
         $elementos = elementos::find($id);
         $elementos->delete();
-        return redirect()->route('elementos.index');
+        return redirect()->route('elementos.index')->with('message','Elemento Eliminado Correctamente');
     }
 
 }

@@ -16,77 +16,59 @@ class reservasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	/*public function usuarios()
+	public function Misreservas($id)
 	{
-	$usuarios = usuarios::all();
-		return view('reservas_salas.usuarios', compact('usuarios'));
-	}
-		
+		$reservas = \DB::table('reservas_salas')
+					->select('usuarios.nombres as nom_user','usuarios.apellidos as ape_user','salas.nombre as sala','reservas_salas.*')
+					->join('usuarios', 'reservas_salas.usuario_id', '=', 'usuarios.id')
+					->join('salas', 'reservas_salas.sala_id', '=', 'salas.id')
+					->where('usuario_id', '=', $id)
+					->get();
 
-	public function buscar(Request $request)
+		return view('mis_reservas.index')->with('reservas', $reservas);
+
+	}		
+
+
+
+	public function confirmar($id)
 	{
-		$usuario = $request->input('usuario');
-		dd($request);
-	}*/
-		
-
-		public function confirmar($id)
-		{
 		$reservas = reservas_salas::find($id);
 		$reservas->confirmar = 1;
         $reservas->save();
         return redirect()->route('reservas.index')->with('message','La Reserva se ha Confirmado');
-		}
+	}
 
+
+
+	public function DiferenciasHoras($age, $mes, $dia, $aula)
+	{
+	//----------------------------------------inicio--------------------------------
+		$inicio = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
+							 ->where('sala_id', '=', $aula)
+							 ->get()->map(function ($record) {
+	    	$hora_inicio = carbon::createFromFormat('H:i:s', $record->hora_inicio);
+	        $hora_final = carbon::createFromFormat('H:i:s', $record->hora_final);
+	        return [$hora_inicio->toTimeString(), $hora_final->toTimeString()];        
+	    });
+	//----------------------------------------final--------------------------------
+
+		$final = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
+							 ->where('sala_id', '=', $aula)
+							 ->get()->map(function ($record) {
+	        $horainicio = carbon::createFromFormat('H:i:s', $record->hora_inicio)->addHours(1);
+	        $horafinal = carbon::createFromFormat('H:i:s', $record->hora_final)->addHours(1);;
+	        return  [$horainicio->toTimeString(), $horafinal->toTimeString()];        
+	    });
+	//_____________________________return final________________________________________
 		
-	/*	public function DiferenciasHoras()
-		{
-		    return reservas_salas::where('fecha_servicio', '=', '2016/11/17')->get()->map(function($record){
-		        $hora_inicio = carbon::createFromFormat('H:i:s', $record->hora_inicio);
-		        $hora_final = carbon::createFromFormat('H:i:s', $record->hora_final);
-//++$hora_inicio;
-		       // ++$hora_final;
-		        $horainicio = $hora_inicio->hour;
-				$horafinal = $hora_final->hour;
-
-		        //$hora_final_denegada = '"'.$horainicio .':00"'.', "'.$horafinal .':00"';
-		        $hora_final_denegada = $horainicio .':00'.', '.$horafinal .':00';
-		        dd($hora_final_denegada);
-		        return $hora_final_denegada;
-							});
-		}*/
-
-public function DiferenciasHoras($age, $mes, $dia, $aula)
-{
-//----------------------------------------inicio--------------------------------
-	$inicio = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
-						 ->where('sala_id', '=', $aula)
-						 ->get()->map(function ($record) {
-    	$hora_inicio = carbon::createFromFormat('H:i:s', $record->hora_inicio);
-        $hora_final = carbon::createFromFormat('H:i:s', $record->hora_final);
-        return [$hora_inicio->toTimeString(), $hora_final->toTimeString()];        
-    });
-//----------------------------------------final--------------------------------
-
-	$final = reservas_salas::where('fecha_servicio', '=', $age.'/'.$mes.'/'.$dia)
-						 ->where('sala_id', '=', $aula)
-						 ->get()->map(function ($record) {
-        $horainicio = carbon::createFromFormat('H:i:s', $record->hora_inicio)->addHours(1);
-        $horafinal = carbon::createFromFormat('H:i:s', $record->hora_final)->addHours(1);;
-        return  [$horainicio->toTimeString(), $horafinal->toTimeString()];        
-    });
-//_____________________________return final________________________________________
-	
-		$data = ['inicio' => $inicio, 'final' => $final];
-		 return response()->json([$data]);
-}
+			$data = ['inicio' => $inicio, 'final' => $final];
+			 return response()->json([$data]);
+	}
 
 
 	public function index()
 	{	
-		//$diferencia = ['diferencia' => $this->DiferenciasHoras()];
-		//dd($diferencia);
-		
 		$reservas = \DB::table('reservas_salas')
 					->select('usuarios.nombres as nom_user','usuarios.apellidos as ape_user','salas.nombre as sala','reservas_salas.*')
 					->join('usuarios', 'reservas_salas.usuario_id', '=', 'usuarios.id')
@@ -199,7 +181,7 @@ public function DiferenciasHoras($age, $mes, $dia, $aula)
 	{
 		 $reservas = reservas_salas::find($id);
         $reservas->delete();
-        return redirect()->route('reservas.index');
+        return redirect()->route('reservas.index')->with('message','La Reserva se Elimino Correctamente');;
 	}
 
 }

@@ -30,8 +30,20 @@ Route::resource('login', 'LoginController');
  Route::get('confirmar/{id}', array('as' => 'confirmar', 'uses' => 'reservasController@confirmar'));
  Route::get('reservas/buscar/{usuario}',array('as'=>'reservas.buscar','uses' => 'reservasController@buscar'));
  Route::get('horas/fecha/{age}/{mes}/{dia}/aula/{aula}', 'reservasController@DiferenciasHoras');
+ Route::get('admin/reservas/{id}', 'reservasController@Misreservas');
+ Route::resource('misreservas', 'MisReservasController');
 
- Route::resource('usuarios','usuariosController');
+ Route::get('usuario/misreservas/{id}', 'UserReservaController@Misreservas');
+ Route::resource('userreservas', 'UserReservaController');
+
+ 
+Route::get('resaca', 'ResacaAuthController@index');
+Route::post('resaca/auth', 'ResacaAuthController@auth');
+Route::post('resaca/revoke', 'ResacaAuthController@revoke');
+
+
+
+
 
 
 

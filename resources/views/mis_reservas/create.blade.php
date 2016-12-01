@@ -2,19 +2,10 @@
 
 @section('content')
 @include('alertas.request')
-    {!! Form::open([ 'route' => 'reservas.store', 'method' => 'POST']) !!}
-         
-         <div class="form-group row">
-            <div class="col-md-6">    
-        {!! Form::label('usuario', 'Busca el usuario:', ['for' => 'usuario'] ) !!}  
-        <select name="usuario_id"  class="form-control select">
-            @foreach($usuarios as $result)
-                <option value="{{ $result->id }}">{{ $result->nombres.' '.$result->apellidos }}</option>
-            @endforeach
-        </select>
-            </div>
-
-             <div class="col-md-6"> 
+    {!! Form::open([ 'route' => 'misreservas.store', 'method' => 'POST']) !!}
+      <div class="form-group row"> 
+              <input type="hidden" name="usuario_id" value=1>
+             <div class="col-md-12"> 
                 {!! Form::label('aula', 'Escoge el Aula:', ['for' => 'aula'] )!!}                
                     <select name="sala_id" id="sala" class="select form-control">
                 @foreach($salas as $result2)
@@ -58,9 +49,9 @@
 
        <div class="form-group row">
            <div class="col-md-12">
-              <label class="label-control">detalles de la Reserva</label>
+              {!! Form::label('detalle_reserva', 'detalle_reserva:', ['for' => 'detalle_reserva'] ) !!} 
               <textarea name="detalle_reserva" class="form-control" rows="2"></textarea>
-           </div>
+            </div>
        </div>
 
         @include('reservas_salas.partials.fields')

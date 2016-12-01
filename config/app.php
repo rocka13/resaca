@@ -145,7 +145,7 @@ return [
 		'resaca\Providers\EventServiceProvider',
 		'resaca\Providers\RouteServiceProvider',
 
-		'Collective\Html\HtmlServiceProvider'
+		'Collective\Html\HtmlServiceProvider',
 
 	],
 
@@ -197,6 +197,7 @@ return [
 
 		'Form' 		=> 'Collective\Html\FormFacade',
       	'Html' 		=> 'Collective\Html\HtmlFacade',
+  
 
 	],
 

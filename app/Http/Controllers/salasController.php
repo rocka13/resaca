@@ -94,7 +94,8 @@ class salasController extends Controller {
 	{
 		$salas = salas::find($id);
         $salas->delete();
-        return redirect()->route('salas.index');
+        return redirect()->route('salas.index')->with('message','Aula Eliminada Correctamente');
+
 	}
 
 }

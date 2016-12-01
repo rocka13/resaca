@@ -81,14 +81,14 @@
                                   <li>
                                     <a href="{!! URL::to('elementos_salas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Elementos en Salas</a>
                                 </li>
-                                    <li>
+                                <li>
                                     <a href="{!! URL::to('reservas') !!}"><i class='fa fa-list-ol fa-plus fa-fw'></i> Reservas</a>
                                 </li>
                             </ul>
-                            <li>
-                            <a id="exportar" href=""><i class="fa fa-line-chart  fa-fw"></i> Mis Reservas<span class="fa abajo"></span></a>
-                        </li>
-                        </li>
+                    </li>
+                    <li>
+                       <a  href="{!! URL::to('/admin/reservas/1') !!}"><i class="fa fa-line-chart  fa-fw"></i> Mis Reservas</a>
+                    </li>
                     </ul>
                 </div>
             </div>

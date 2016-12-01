@@ -23,20 +23,9 @@
  </style>
  <div class="container">
  <div class="login">
-{!!Form::open(['route'=>'login.store', 'method' =>'POST'])!!}
-     <div class="form-group">
-         <label for="inputEmail">Correo</label>
-         <input name="email" type="text" class="form-control" placeholder="Email">
-     </div>
-     <div class="form-group">
-         <label for="inputPassword">Contraseña</label>
-         <input name="password" type="password" class="form-control" placeholder="Contraseña">
-     </div>
-     <div class="checkbox">
-         <label><input type="checkbox">Recuerdame</label>
-     </div>
-     <button type="submit" class="btn entrar">Entrar</button>
-{!!Form::close()!!}
+  {!! Form::open(['url' => url('resaca/auth')]) !!}
+{!! Form::button('<i class="glyphicon glyphicon-link"></i> Autorizar',['class' => 'btn btn-primary','type'=>'submit']) !!}
+{!! Form::close() !!}
 </div>
 </div>
 {!!Html::script("js/jquery.js")!!}

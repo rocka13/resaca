@@ -114,7 +114,7 @@ class elementos_salasController extends Controller {
         $elementos_salas->elemento_id = $request->input('elemento_id');
         $elementos_salas->cantidad = $request->input('cantidad');
         $elementos_salas->save();
-        return redirect()->route('elementos_salas.index')->with('message','el Elemento en el Aula a sido editado Correctamente');;
+        return redirect()->route('elementos_salas.index')->with('message','el Elemento en el Aula a sido editado Correctamente');
 	}
 
 	/**
@@ -127,7 +127,7 @@ class elementos_salasController extends Controller {
 	{
 		$elementos_salas = elementos_salas::find($id);
         $elementos_salas->delete();
-        return redirect()->route('elementos_salas.index');
+        return redirect()->route('elementos_salas.index')->with('message','el Elemento en el Aula a sido Eliminado Correctamente');
 	}
 
 }

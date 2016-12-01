@@ -92,7 +92,7 @@ class tipoElementosController extends Controller {
     {
         $tipo_elementos = tipo_elementos::find($id);
         $tipo_elementos->delete();
-        return redirect()->route('tipo_elementos.index');
+        return redirect()->route('tipo_elementos.index')>with('message','Tipo de Elemento Eliminado Correctamente');
     }
 
 }

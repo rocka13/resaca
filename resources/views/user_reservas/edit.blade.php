@@ -3,23 +3,13 @@
 @section('content')
 @include('alertas.request')
     
-    {!! Form::model($reservas, [ 'route' => ['reservas.update', $reservas], 'method' => 'PUT']) !!}
+    {!! Form::model($reservas, [ 'route' => ['userreservas.update', $reservas], 'method' => 'PUT']) !!}
 
 
          <div class="form-group row">
-            <div class="col-md-6">    
-        {!! Form::label('usuario', 'Busca el usuario:', ['for' => 'usuario'] ) !!}  
-        <select name="usuario_id" class="form-control select">
-             @foreach($usuario as $result)
-                <option value="{{ $result->usuario_id }}">{{ $result->nombres.' '.$result->apellidos }}</option>
-            @endforeach
-            @foreach($usuarios as $result1)
-                <option value="{{ $result1->id }}">{{ $result1->nombres.' '.$result1->apellidos }}</option>
-            @endforeach
-        </select>
-            </div>
-
-             <div class="col-md-6"> 
+      
+              <input type="hidden" name="usuario_id" value=1>
+             <div class="col-md-12"> 
                 {!! Form::label('aula', 'Escoge el Aula:', ['for' => 'aula'] ) !!}                
                    <select name="sala_id" id="sala" class="form-control select">
                 @foreach($sala as $result2)
@@ -64,10 +54,10 @@
 
 
        <div class="form-group row">
-           <div class="col-md-12">
-              <label class="label-control">detalles de la Reserva</label>
+            <div class="col-md-12">
+              {!! Form::label('detalle_reserva', 'detalle_reserva:', ['for' => 'detalle_reserva'] ) !!} 
               <textarea name="detalle_reserva" class="form-control" rows="2">{{$reservas->detalle_reserva }}</textarea>
-            </div>
+              </div>
        </div>
 
         @include('reservas_salas.partials.fields')
