@@ -2,14 +2,12 @@
 
 namespace resaca\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use resaca\User;
 use Illuminate\Support\Facades\Auth;
-use resaca\Http\Requests;
-use resaca\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\View;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\GenericProvider;
 
@@ -107,10 +105,9 @@ class ResacaAuthController extends Controller
             'clientId' => env('RESACA_APP_ID'),
             'clientSecret' => env('RESACA_APP_SECRET'),
             'redirectUri' => env('RESACA_APP_REDIRECT'),
-            'urlAuthorize' =>               'http://190.255.49.210:8080/api/o/authorize/',
-            'urlAccessToken' =>             'http://190.255.49.210:8080/api/token/',
-            'urlResourceOwnerDetails' =>    'http://190.255.49.210:8080/api/me/',
-            'scopes' => 'write Read'
+            'urlAuthorize' => 'http://190.255.49.210:8080/api/o/authorize/',
+            'urlAccessToken' => 'http://190.255.49.210:8080/api/token/',
+            'urlResourceOwnerDetails' => 'http://190.255.49.210:8080/api/me/'
         ]);
     }
 }
