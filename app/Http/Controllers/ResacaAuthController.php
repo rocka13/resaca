@@ -108,7 +108,7 @@ class ResacaAuthController extends Controller
             'clientSecret' => env('RESACA_APP_SECRET'),
             'redirectUri' => env('RESACA_APP_REDIRECT'),
             'urlAuthorize' =>               'http://190.255.49.210:8080/api/o/authorize/',
-            'urlAccessToken' =>             'http://190.255.49.210:8080/api/token/',
+            'urlAccessToken' =>             'http://190.255.49.210:8080/api/o/token/',
             'urlResourceOwnerDetails' =>    'http://190.255.49.210:8080/api/me/',
             'scopes' => 'write Read'
         ]);
