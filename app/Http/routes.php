@@ -39,6 +39,8 @@ Route::resource('login', 'LoginController');
  
 Route::get('resaca', 'ResacaAuthController@index');
 Route::post('resaca/auth', 'ResacaAuthController@auth');
+Route::get('resaca/callback', 'ResacaAuthController@callback');
+Route::get('resaca/done', 'ResacaAuthController@done');
 Route::post('resaca/revoke', 'ResacaAuthController@revoke');
 
 
