@@ -4,7 +4,7 @@ namespace resaca\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use resaca\User;
+use resaca\usuarios;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
@@ -30,8 +30,11 @@ class ResacaAuthController extends Controller
      */
     public function auth(Request $request)
     {
+        dd();
         $provider = $this->getOauthProvider();
+        //dd($provider);
         $authorizationUrl = $provider->getAuthorizationUrl();
+        //dd($authorizationUrl);
         $request->session()->put('oauth2state', $provider->getState());
         return redirect()->to($authorizationUrl);
     }
@@ -43,10 +46,10 @@ class ResacaAuthController extends Controller
      */
     public function revoke()
     {
-        Auth::user()->access_token = '';
-        Auth::user()->refresh_token = '';
-        Auth::user()->expires = 0;
-        Auth::user()->save();
+        Auth::usuarios()->access_token = '';
+        Auth::usuarios()->refresh_token = '';
+        Auth::usuarios()->expires = 0;
+        Auth::usuarios()->save();
         return Redirect::to('login')->with('success', 'Se ha desconectado correctamente');
     }
 
@@ -59,9 +62,11 @@ class ResacaAuthController extends Controller
      */
     public function callback(Request $request)
     {
+        $token = $request->session()->get('oauth2state');
+        //dd($token);
         try {
             $this->validate($request, [
-                'state' => 'required|in:' . $request->session()->get('oauth2state'),
+                'state' => 'required|in:' . $token,
                 'code' => 'required'
             ]);
         } catch (\Exception $e) {
@@ -79,7 +84,7 @@ class ResacaAuthController extends Controller
             ]);
 
             // Store in database
-            $user = new User();
+            $user = new usuarios();
             $user->access_token = $payload->getToken();
             $user->refresh_token = $payload->getRefreshToken();
             $user->expires = $payload->getExpires();
@@ -105,16 +110,9 @@ class ResacaAuthController extends Controller
             'clientId' => env('RESACA_APP_ID'),
             'clientSecret' => env('RESACA_APP_SECRET'),
             'redirectUri' => env('RESACA_APP_REDIRECT'),
-<<<<<<< HEAD
             'urlAuthorize' =>               'http://190.255.49.210:8080/api/o/authorize/',
             'urlAccessToken' =>             'http://190.255.49.210:8080/api/o/token/',
             'urlResourceOwnerDetails' =>    'http://190.255.49.210:8080/api/me/',
-            'scopes' => 'write Read'
-=======
-            'urlAuthorize' => 'http://190.255.49.210:8080/api/o/authorize/',
-            'urlAccessToken' => 'http://190.255.49.210:8080/api/token/',
-            'urlResourceOwnerDetails' => 'http://190.255.49.210:8080/api/me/'
->>>>>>> origin/master
         ]);
     }
 }
